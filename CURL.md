@@ -5,14 +5,27 @@ Esta documentación contiene ejemplos de cómo usar la API del servidor de usuar
 ## Requisitos
 
 - Tener cURL instalado (viene preinstalado en macOS y Linux)
-- Servidor ejecutándose en `http://localhost:3000`
+- Servidor ejecutándose en `http://localhost:3000` (local) o usar la versión en producción
+
+## 🌐 Servidor en Producción
+
+El servidor está disponible en Railway: **https://api-usuarios-p2.up.railway.app**
+
+Puedes usar los ejemplos de cURL directamente con esta URL sin necesidad de ejecutar el servidor localmente.
 
 ## Endpoints Disponibles
 
 ### GET /api/usuarios
 Obtiene todos los usuarios
+
+**Local:**
 ```bash
 curl http://localhost:3000/api/usuarios
+```
+
+**Producción (Railway):**
+```bash
+curl https://api-usuarios-p2.up.railway.app/api/usuarios
 ```
 
 ### GET /api/usuarios/search/username/:username

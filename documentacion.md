@@ -2,7 +2,7 @@
 
 ## Información General
 
-**Base URL:** `http://localhost:3000/api/usuarios`
+**Base URL:** `https://api-usuarios-p2.up.railway.app/api/usuarios`
 
 **Formato de respuesta:** JSON
 
@@ -70,13 +70,13 @@
 
 **Ejemplo JavaScript:**
 ```javascript
-const response = await fetch('http://localhost:3000/api/usuarios');
+const response = await fetch('https://api-usuarios-p2.up.railway.app/api/usuarios');
 const data = await response.json();
 ```
 
 **Ejemplo cURL:**
 ```bash
-curl http://localhost:3000/api/usuarios
+curl https://api-usuarios-p2.up.railway.app/api/usuarios
 ```
 
 ---
@@ -119,13 +119,13 @@ curl http://localhost:3000/api/usuarios
 **Ejemplo JavaScript:**
 ```javascript
 const username = 'juan123';
-const response = await fetch(`http://localhost:3000/api/usuarios/search/username/${username}`);
+const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/usuarios/search/username/${username}`);
 const data = await response.json();
 ```
 
 **Ejemplo cURL:**
 ```bash
-curl http://localhost:3000/api/usuarios/search/username/juan123
+curl https://api-usuarios-p2.up.railway.app/api/usuarios/search/username/juan123
 ```
 
 ---
@@ -168,13 +168,13 @@ curl http://localhost:3000/api/usuarios/search/username/juan123
 **Ejemplo JavaScript:**
 ```javascript
 const email = 'juan@ejemplo.com';
-const response = await fetch(`http://localhost:3000/api/usuarios/search/email/${email}`);
+const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/usuarios/search/email/${email}`);
 const data = await response.json();
 ```
 
 **Ejemplo cURL:**
 ```bash
-curl http://localhost:3000/api/usuarios/search/email/juan@ejemplo.com
+curl https://api-usuarios-p2.up.railway.app/api/usuarios/search/email/juan@ejemplo.com
 ```
 
 ---
@@ -217,13 +217,13 @@ curl http://localhost:3000/api/usuarios/search/email/juan@ejemplo.com
 **Ejemplo JavaScript:**
 ```javascript
 const userId = '64f8a1b2c3d4e5f6a7b8c9d0';
-const response = await fetch(`http://localhost:3000/api/usuarios/${userId}`);
+const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/usuarios/${userId}`);
 const data = await response.json();
 ```
 
 **Ejemplo cURL:**
 ```bash
-curl http://localhost:3000/api/usuarios/64f8a1b2c3d4e5f6a7b8c9d0
+curl https://api-usuarios-p2.up.railway.app/api/usuarios/64f8a1b2c3d4e5f6a7b8c9d0
 ```
 
 ---
@@ -305,7 +305,7 @@ const nuevoUsuario = {
   }
 };
 
-const response = await fetch('http://localhost:3000/api/usuarios', {
+const response = await fetch('https://api-usuarios-p2.up.railway.app/api/usuarios', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -318,7 +318,7 @@ const data = await response.json();
 
 **Ejemplo cURL:**
 ```bash
-curl -X POST http://localhost:3000/api/usuarios \
+curl -X POST https://api-usuarios-p2.up.railway.app/api/usuarios \
   -H "Content-Type: application/json" \
   -d '{
     "username": "juan123",
@@ -405,7 +405,7 @@ const datosActualizados = {
   }
 };
 
-const response = await fetch(`http://localhost:3000/api/usuarios/${userId}`, {
+const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/usuarios/${userId}`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json'
@@ -418,7 +418,7 @@ const data = await response.json();
 
 **Ejemplo cURL:**
 ```bash
-curl -X PUT http://localhost:3000/api/usuarios/64f8a1b2c3d4e5f6a7b8c9d0 \
+curl -X PUT https://api-usuarios-p2.up.railway.app/api/usuarios/64f8a1b2c3d4e5f6a7b8c9d0 \
   -H "Content-Type: application/json" \
   -d '{
     "username": "juan456",
@@ -470,7 +470,7 @@ curl -X PUT http://localhost:3000/api/usuarios/64f8a1b2c3d4e5f6a7b8c9d0 \
 **Ejemplo JavaScript:**
 ```javascript
 const userId = '64f8a1b2c3d4e5f6a7b8c9d0';
-const response = await fetch(`http://localhost:3000/api/usuarios/${userId}`, {
+const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/usuarios/${userId}`, {
   method: 'DELETE'
 });
 
@@ -479,7 +479,7 @@ const data = await response.json();
 
 **Ejemplo cURL:**
 ```bash
-curl -X DELETE http://localhost:3000/api/usuarios/64f8a1b2c3d4e5f6a7b8c9d0
+curl -X DELETE https://api-usuarios-p2.up.railway.app/api/usuarios/64f8a1b2c3d4e5f6a7b8c9d0
 ```
 
 ## Códigos de Estado HTTP

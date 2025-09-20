@@ -59,6 +59,16 @@ npm start
 
 El servidor se ejecutará en `http://localhost:3000`
 
+## 🌐 Servidor en Producción
+
+El servidor también está disponible en producción en Railway:
+
+**URL de Producción:** https://api-usuarios-p2.up.railway.app
+
+**Documentación:** https://api-usuarios-p2.up.railway.app/docs
+
+**API Base:** https://api-usuarios-p2.up.railway.app/api/usuarios
+
 ## 📚 Documentación Interactiva
 
 Una vez que el servidor esté ejecutándose, puedes acceder a la documentación completa de la API visitando:
