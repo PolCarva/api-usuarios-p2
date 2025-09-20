@@ -63,8 +63,10 @@ app.use((error, req, res, next) => {
 
 const PORT = config.PORT;
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Servidor ejecutándose en puerto ${PORT}`);
+const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
+
+app.listen(PORT, HOST, () => {
+  console.log(`🚀 Servidor ejecutándose en ${HOST}:${PORT}`);
   console.log(`📊 Base de datos: ${config.MONGODB_URI}`);
   console.log(`🌐 Entorno: ${process.env.NODE_ENV || 'development'}`);
 });
