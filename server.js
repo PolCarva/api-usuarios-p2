@@ -67,6 +67,6 @@ const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
 
 app.listen(PORT, HOST, () => {
   console.log(`🚀 Servidor ejecutándose en ${HOST}:${PORT}`);
-  console.log(`📊 Base de datos: ${config.MONGODB_URI}`);
+  console.log(`📊 Base de datos: MongoDB Atlas conectado`);
   console.log(`🌐 Entorno: ${process.env.NODE_ENV || 'development'}`);
 });

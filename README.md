@@ -83,7 +83,7 @@ El servidor también está disponible en producción en Railway:
 El proyecto está configurado para usar **MongoDB Atlas** (base de datos en la nube):
 
 - **Cluster:** API-Usuarios-P2
-- **Usuario:** pablocarvalhogimenez_db_user
+- **Usuario:** [Configurado en variables de entorno]
 - **Base de datos:** usuarios_db
 
 ### Configuración Local
