@@ -30,7 +30,16 @@ Un servidor simple que permite gestionar usuarios con operaciones CRUD completas
 npm install
 ```
 
-2. Asegúrate de tener MongoDB ejecutándose en tu sistema:
+2. Configurar variables de entorno:
+```bash
+# Copiar el archivo de ejemplo
+cp .env.example .env
+
+# Editar las variables según tu configuración
+# El archivo .env.example ya incluye la configuración de MongoDB Atlas
+```
+
+3. Asegúrate de tener MongoDB ejecutándose en tu sistema (opcional si usas MongoDB Atlas):
 ```bash
 # En macOS con Homebrew
 brew services start mongodb-community
@@ -39,7 +48,7 @@ brew services start mongodb-community
 mongod
 ```
 
-3. Poblar la base de datos con datos de ejemplo (opcional):
+4. Poblar la base de datos con datos de ejemplo (opcional):
 ```bash
 # Seed completo con usuarios detallados
 npm run seed
@@ -48,7 +57,7 @@ npm run seed
 npm run seed:simple
 ```
 
-4. Iniciar el servidor:
+5. Iniciar el servidor:
 ```bash
 # Modo desarrollo (con nodemon)
 npm run dev
@@ -68,6 +77,26 @@ El servidor también está disponible en producción en Railway:
 **Documentación:** https://api-usuarios-p2.up.railway.app/docs
 
 **API Base:** https://api-usuarios-p2.up.railway.app/api/usuarios
+
+## 🗄️ Base de Datos
+
+El proyecto está configurado para usar **MongoDB Atlas** (base de datos en la nube):
+
+- **Cluster:** API-Usuarios-P2
+- **Usuario:** pablocarvalhogimenez_db_user
+- **Base de datos:** usuarios_db
+
+### Configuración Local
+
+Si prefieres usar MongoDB local, modifica el archivo `.env`:
+
+```bash
+# Comentar la línea de MongoDB Atlas
+# MONGODB_URI=mongodb+srv://...
+
+# Descomentar la línea de MongoDB local
+MONGODB_URI=mongodb://localhost:27017/usuarios_db
+```
 
 ## 📚 Documentación Interactiva
 
