@@ -63,7 +63,7 @@ app.use((error, req, res, next) => {
 
 const PORT = config.PORT;
 
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor ejecutándose en http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Servidor ejecutándose en puerto ${PORT}`);
   console.log(`📊 Base de datos: ${config.MONGODB_URI}`);
 });
