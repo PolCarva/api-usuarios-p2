@@ -2,7 +2,7 @@
 
 ## Información General
 
-**Base URL:** `https://api-usuarios-p2.up.railway.app/api/usuarios`
+**Base URL:** `https://api-usuarios-p2.up.railway.app/api/users`
 
 **Formato de respuesta:** JSON
 
@@ -41,7 +41,7 @@
 
 ### 1. Obtener Todos los Usuarios
 
-**GET** `/api/usuarios`
+**GET** `/api/users`
 
 **Descripción:** Retorna una lista de todos los usuarios registrados.
 
@@ -70,20 +70,20 @@
 
 **Ejemplo JavaScript:**
 ```javascript
-const response = await fetch('https://api-usuarios-p2.up.railway.app/api/usuarios');
+const response = await fetch('https://api-usuarios-p2.up.railway.app/api/users');
 const data = await response.json();
 ```
 
 **Ejemplo cURL:**
 ```bash
-curl https://api-usuarios-p2.up.railway.app/api/usuarios
+curl https://api-usuarios-p2.up.railway.app/api/users
 ```
 
 ---
 
 ### 2. Buscar Usuario por Username
 
-**GET** `/api/usuarios/search/username/:username`
+**GET** `/api/users/search/username/:username`
 
 **Descripción:** Busca un usuario específico por su nombre de usuario.
 
@@ -119,20 +119,20 @@ curl https://api-usuarios-p2.up.railway.app/api/usuarios
 **Ejemplo JavaScript:**
 ```javascript
 const username = 'juan123';
-const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/usuarios/search/username/${username}`);
+const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/users/search/username/${username}`);
 const data = await response.json();
 ```
 
 **Ejemplo cURL:**
 ```bash
-curl https://api-usuarios-p2.up.railway.app/api/usuarios/search/username/juan123
+curl https://api-usuarios-p2.up.railway.app/api/users/search/username/juan123
 ```
 
 ---
 
 ### 3. Buscar Usuario por Email
 
-**GET** `/api/usuarios/search/email/:email`
+**GET** `/api/users/search/email/:email`
 
 **Descripción:** Busca un usuario específico por su dirección de correo electrónico.
 
@@ -168,20 +168,20 @@ curl https://api-usuarios-p2.up.railway.app/api/usuarios/search/username/juan123
 **Ejemplo JavaScript:**
 ```javascript
 const email = 'juan@ejemplo.com';
-const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/usuarios/search/email/${email}`);
+const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/users/search/email/${email}`);
 const data = await response.json();
 ```
 
 **Ejemplo cURL:**
 ```bash
-curl https://api-usuarios-p2.up.railway.app/api/usuarios/search/email/juan@ejemplo.com
+curl https://api-usuarios-p2.up.railway.app/api/users/search/email/juan@ejemplo.com
 ```
 
 ---
 
 ### 4. Obtener Usuario por ID
 
-**GET** `/api/usuarios/:id`
+**GET** `/api/users/:id`
 
 **Descripción:** Obtiene un usuario específico por su ID de MongoDB.
 
@@ -217,20 +217,20 @@ curl https://api-usuarios-p2.up.railway.app/api/usuarios/search/email/juan@ejemp
 **Ejemplo JavaScript:**
 ```javascript
 const userId = '64f8a1b2c3d4e5f6a7b8c9d0';
-const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/usuarios/${userId}`);
+const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/users/${userId}`);
 const data = await response.json();
 ```
 
 **Ejemplo cURL:**
 ```bash
-curl https://api-usuarios-p2.up.railway.app/api/usuarios/64f8a1b2c3d4e5f6a7b8c9d0
+curl https://api-usuarios-p2.up.railway.app/api/users/64f8a1b2c3d4e5f6a7b8c9d0
 ```
 
 ---
 
 ### 5. Crear Usuario
 
-**POST** `/api/usuarios`
+**POST** `/api/users`
 
 **Descripción:** Crea un nuevo usuario en el sistema.
 
@@ -305,7 +305,7 @@ const nuevoUsuario = {
   }
 };
 
-const response = await fetch('https://api-usuarios-p2.up.railway.app/api/usuarios', {
+const response = await fetch('https://api-usuarios-p2.up.railway.app/api/users', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -318,7 +318,7 @@ const data = await response.json();
 
 **Ejemplo cURL:**
 ```bash
-curl -X POST https://api-usuarios-p2.up.railway.app/api/usuarios \
+curl -X POST https://api-usuarios-p2.up.railway.app/api/users \
   -H "Content-Type: application/json" \
   -d '{
     "username": "juan123",
@@ -334,7 +334,7 @@ curl -X POST https://api-usuarios-p2.up.railway.app/api/usuarios \
 
 ### 6. Actualizar Usuario
 
-**PUT** `/api/usuarios/:id`
+**PUT** `/api/users/:id`
 
 **Descripción:** Actualiza un usuario existente.
 
@@ -405,7 +405,7 @@ const datosActualizados = {
   }
 };
 
-const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/usuarios/${userId}`, {
+const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/users/${userId}`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json'
@@ -418,7 +418,7 @@ const data = await response.json();
 
 **Ejemplo cURL:**
 ```bash
-curl -X PUT https://api-usuarios-p2.up.railway.app/api/usuarios/64f8a1b2c3d4e5f6a7b8c9d0 \
+curl -X PUT https://api-usuarios-p2.up.railway.app/api/users/64f8a1b2c3d4e5f6a7b8c9d0 \
   -H "Content-Type: application/json" \
   -d '{
     "username": "juan456",
@@ -433,7 +433,7 @@ curl -X PUT https://api-usuarios-p2.up.railway.app/api/usuarios/64f8a1b2c3d4e5f6
 
 ### 7. Eliminar Usuario
 
-**DELETE** `/api/usuarios/:id`
+**DELETE** `/api/users/:id`
 
 **Descripción:** Elimina un usuario del sistema.
 
@@ -470,7 +470,7 @@ curl -X PUT https://api-usuarios-p2.up.railway.app/api/usuarios/64f8a1b2c3d4e5f6
 **Ejemplo JavaScript:**
 ```javascript
 const userId = '64f8a1b2c3d4e5f6a7b8c9d0';
-const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/usuarios/${userId}`, {
+const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/users/${userId}`, {
   method: 'DELETE'
 });
 
@@ -479,7 +479,7 @@ const data = await response.json();
 
 **Ejemplo cURL:**
 ```bash
-curl -X DELETE https://api-usuarios-p2.up.railway.app/api/usuarios/64f8a1b2c3d4e5f6a7b8c9d0
+curl -X DELETE https://api-usuarios-p2.up.railway.app/api/users/64f8a1b2c3d4e5f6a7b8c9d0
 ```
 
 ## Códigos de Estado HTTP

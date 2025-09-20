@@ -15,41 +15,41 @@ Puedes usar los ejemplos de cURL directamente con esta URL sin necesidad de ejec
 
 ## Endpoints Disponibles
 
-### GET /api/usuarios
+### GET /api/users
 Obtiene todos los usuarios
 
 **Local:**
 ```bash
-curl http://localhost:3000/api/usuarios
+curl http://localhost:3000/api/users
 ```
 
 **Producción (Railway):**
 ```bash
-curl https://api-usuarios-p2.up.railway.app/api/usuarios
+curl https://api-usuarios-p2.up.railway.app/api/users
 ```
 
-### GET /api/usuarios/search/username/:username
+### GET /api/users/search/username/:username
 Busca un usuario por username
 ```bash
-curl http://localhost:3000/api/usuarios/search/username/juan123
+curl http://localhost:3000/api/users/search/username/juan123
 ```
 
-### GET /api/usuarios/search/email/:email
+### GET /api/users/search/email/:email
 Busca un usuario por email
 ```bash
-curl http://localhost:3000/api/usuarios/search/email/juan@ejemplo.com
+curl http://localhost:3000/api/users/search/email/juan@ejemplo.com
 ```
 
-### GET /api/usuarios/:id
+### GET /api/users/:id
 Obtiene un usuario específico por ID
 ```bash
-curl http://localhost:3000/api/usuarios/64f8a1b2c3d4e5f6a7b8c9d0
+curl http://localhost:3000/api/users/64f8a1b2c3d4e5f6a7b8c9d0
 ```
 
-### POST /api/usuarios
+### POST /api/users
 Crea un nuevo usuario
 ```bash
-curl -X POST http://localhost:3000/api/usuarios \
+curl -X POST http://localhost:3000/api/users \
   -H "Content-Type: application/json" \
   -d '{
     "username": "juan123",
@@ -65,16 +65,16 @@ curl -X POST http://localhost:3000/api/usuarios \
   }'
 ```
 
-### PUT /api/usuarios/:id
+### PUT /api/users/:id
 Actualiza un usuario existente
 ```bash
 
 ```
 
-### DELETE /api/usuarios/:id
+### DELETE /api/users/:id
 Elimina un usuario
 ```bash
-curl -X DELETE http://localhost:3000/api/usuarios/64f8a1b2c3d4e5f6a7b8c9d0
+curl -X DELETE http://localhost:3000/api/users/64f8a1b2c3d4e5f6a7b8c9d0
 ```
 
 ## Ejemplos con Variables
@@ -87,16 +87,16 @@ USERNAME="maria123"
 EMAIL="maria@ejemplo.com"
 
 # Buscar por username
-curl http://localhost:3000/api/usuarios/search/username/$USERNAME
+curl http://localhost:3000/api/users/search/username/$USERNAME
 
 # Buscar por email
-curl http://localhost:3000/api/usuarios/search/email/$EMAIL
+curl http://localhost:3000/api/users/search/email/$EMAIL
 
 # Obtener usuario por ID
-curl http://localhost:3000/api/usuarios/$USER_ID
+curl http://localhost:3000/api/users/$USER_ID
 
 # Crear usuario
-curl -X POST http://localhost:3000/api/usuarios \
+curl -X POST http://localhost:3000/api/users \
   -H "Content-Type: application/json" \
   -d "{
     \"username\": \"$USERNAME\",
@@ -108,7 +108,7 @@ curl -X POST http://localhost:3000/api/usuarios \
   }"
 
 # Actualizar usuario
-curl -X PUT http://localhost:3000/api/usuarios/$USER_ID \
+curl -X PUT http://localhost:3000/api/users/$USER_ID \
   -H "Content-Type: application/json" \
   -d '{
     "data": {
@@ -119,7 +119,7 @@ curl -X PUT http://localhost:3000/api/usuarios/$USER_ID \
   }'
 
 # Eliminar usuario
-curl -X DELETE http://localhost:3000/api/usuarios/$USER_ID
+curl -X DELETE http://localhost:3000/api/users/$USER_ID
 ```
 
 ## Ejemplos con Respuestas Formateadas
@@ -129,10 +129,10 @@ curl -X DELETE http://localhost:3000/api/usuarios/$USER_ID
 # Instalar jq si no lo tienes: brew install jq (macOS) o apt-get install jq (Ubuntu)
 
 # Obtener usuarios con formato
-curl -s http://localhost:3000/api/usuarios | jq '.'
+curl -s http://localhost:3000/api/users | jq '.'
 
 # Crear usuario y mostrar respuesta formateada
-curl -s -X POST http://localhost:3000/api/usuarios \
+curl -s -X POST http://localhost:3000/api/users \
   -H "Content-Type: application/json" \
   -d '{
     "username": "test123",
@@ -147,7 +147,7 @@ curl -s -X POST http://localhost:3000/api/usuarios \
 ```bash
 #!/bin/bash
 
-BASE_URL="http://localhost:3000/api/usuarios"
+BASE_URL="http://localhost:3000/api/users"
 
 echo "=== Probando API de Usuarios ==="
 
@@ -209,7 +209,7 @@ echo -e "\n=== Pruebas completadas ==="
 ```bash
 #!/bin/bash
 
-BASE_URL="http://localhost:3000/api/usuarios"
+BASE_URL="http://localhost:3000/api/users"
 
 usuarios=(
   '{"username": "alice", "email": "alice@ejemplo.com", "data": {"edad": 28, "ciudad": "Madrid"}}'
@@ -239,27 +239,27 @@ curl http://localhost:3000/
 
 ### Probar conectividad
 ```bash
-curl -I http://localhost:3000/api/usuarios
+curl -I http://localhost:3000/api/users
 ```
 
 ### Ver solo headers de respuesta
 ```bash
-curl -I http://localhost:3000/api/usuarios
+curl -I http://localhost:3000/api/users
 ```
 
 ### Guardar respuesta en archivo
 ```bash
-curl http://localhost:3000/api/usuarios -o usuarios.json
+curl http://localhost:3000/api/users -o usuarios.json
 ```
 
 ### Usar timeout
 ```bash
-curl --max-time 10 http://localhost:3000/api/usuarios
+curl --max-time 10 http://localhost:3000/api/users
 ```
 
 ### Verbose mode (ver detalles de la conexión)
 ```bash
-curl -v http://localhost:3000/api/usuarios
+curl -v http://localhost:3000/api/users
 ```
 
 ## Notas Importantes

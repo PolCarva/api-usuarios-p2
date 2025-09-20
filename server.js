@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Rutas
-app.use('/api/usuarios', usuariosRoutes);
+app.use('/api/users', usuariosRoutes);
 app.use('/docs', docsRoutes);
 
 // Ruta de prueba
@@ -28,17 +28,17 @@ app.get('/', (req, res) => {
     message: 'Servidor de usuarios funcionando correctamente',
     documentation: 'Visita /docs para ver la documentación completa de la API',
     endpoints: {
-      'GET /api/usuarios': 'Obtener todos los usuarios',
-      'GET /api/usuarios/search/username/:username': 'Buscar usuario por username',
-      'GET /api/usuarios/search/email/:email': 'Buscar usuario por email',
-      'GET /api/usuarios/:id': 'Obtener un usuario por ID',
-      'POST /api/usuarios': 'Crear un nuevo usuario',
-      'PUT /api/usuarios/:id': 'Actualizar un usuario',
-      'DELETE /api/usuarios/:id': 'Eliminar un usuario'
+      'GET /api/users': 'Obtener todos los usuarios',
+      'GET /api/users/search/username/:username': 'Buscar usuario por username',
+      'GET /api/users/search/email/:email': 'Buscar usuario por email',
+      'GET /api/users/:id': 'Obtener un usuario por ID',
+      'POST /api/users': 'Crear un nuevo usuario',
+      'PUT /api/users/:id': 'Actualizar un usuario',
+      'DELETE /api/users/:id': 'Eliminar un usuario'
     },
     links: {
       documentation: '/docs',
-      api_base: '/api/usuarios'
+      api_base: '/api/users'
     }
   });
 });

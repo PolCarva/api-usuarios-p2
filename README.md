@@ -76,7 +76,7 @@ El servidor también está disponible en producción en Railway:
 
 **Documentación:** https://api-usuarios-p2.up.railway.app/docs
 
-**API Base:** https://api-usuarios-p2.up.railway.app/api/usuarios
+**API Base:** https://api-usuarios-p2.up.railway.app/api/users
 
 ## 🗄️ Base de Datos
 
@@ -99,7 +99,7 @@ MONGODB_URI=mongodb://localhost:27017/usuarios_db
 
 # Cambiar URLs a localhost
 BASE_URL=http://localhost:3000
-API_BASE_URL=http://localhost:3000/api/usuarios
+API_BASE_URL=http://localhost:3000/api/users
 DOCS_URL=http://localhost:3000/docs
 ```
 
@@ -117,42 +117,42 @@ Esta página muestra toda la documentación de la API con:
 
 ## Endpoints Disponibles
 
-### GET /api/usuarios
+### GET /api/users
 Obtiene todos los usuarios
 ```javascript
-const response = await fetch('http://localhost:3000/api/usuarios');
+const response = await fetch('http://localhost:3000/api/users');
 const data = await response.json();
 console.log(data);
 ```
 
-### GET /api/usuarios/search/username/:username
+### GET /api/users/search/username/:username
 Busca un usuario por username
 ```javascript
 const username = 'juan123';
-const response = await fetch(`http://localhost:3000/api/usuarios/search/username/${username}`);
+const response = await fetch(`http://localhost:3000/api/users/search/username/${username}`);
 const data = await response.json();
 console.log(data);
 ```
 
-### GET /api/usuarios/search/email/:email
+### GET /api/users/search/email/:email
 Busca un usuario por email
 ```javascript
 const email = 'juan@ejemplo.com';
-const response = await fetch(`http://localhost:3000/api/usuarios/search/email/${email}`);
+const response = await fetch(`http://localhost:3000/api/users/search/email/${email}`);
 const data = await response.json();
 console.log(data);
 ```
 
-### GET /api/usuarios/:id
+### GET /api/users/:id
 Obtiene un usuario específico por ID
 ```javascript
 const userId = '64f8a1b2c3d4e5f6a7b8c9d0';
-const response = await fetch(`http://localhost:3000/api/usuarios/${userId}`);
+const response = await fetch(`http://localhost:3000/api/users/${userId}`);
 const data = await response.json();
 console.log(data);
 ```
 
-### POST /api/usuarios
+### POST /api/users
 Crea un nuevo usuario
 ```javascript
 const nuevoUsuario = {
@@ -168,7 +168,7 @@ const nuevoUsuario = {
   }
 };
 
-const response = await fetch('http://localhost:3000/api/usuarios', {
+const response = await fetch('http://localhost:3000/api/users', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -180,7 +180,7 @@ const data = await response.json();
 console.log(data);
 ```
 
-### PUT /api/usuarios/:id
+### PUT /api/users/:id
 Actualiza un usuario existente
 ```javascript
 const userId = '64f8a1b2c3d4e5f6a7b8c9d0';
@@ -192,7 +192,7 @@ const datosActualizados = {
   }
 };
 
-const response = await fetch(`http://localhost:3000/api/usuarios/${userId}`, {
+const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json'
@@ -204,11 +204,11 @@ const data = await response.json();
 console.log(data);
 ```
 
-### DELETE /api/usuarios/:id
+### DELETE /api/users/:id
 Elimina un usuario
 ```javascript
 const userId = '64f8a1b2c3d4e5f6a7b8c9d0';
-const response = await fetch(`http://localhost:3000/api/usuarios/${userId}`, {
+const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
   method: 'DELETE'
 });
 
@@ -222,7 +222,7 @@ console.log(data);
 ```javascript
 async function obtenerUsuarios() {
   try {
-    const response = await fetch('http://localhost:3000/api/usuarios');
+    const response = await fetch('http://localhost:3000/api/users');
     const data = await response.json();
     
     if (data.success) {
@@ -247,7 +247,7 @@ async function crearUsuario(username, email, dataExtra = {}) {
       data: dataExtra
     };
 
-    const response = await fetch('http://localhost:3000/api/usuarios', {
+    const response = await fetch('http://localhost:3000/api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -280,7 +280,7 @@ crearUsuario('maria123', 'maria@ejemplo.com', {
 ```javascript
 async function buscarPorUsername(username) {
   try {
-    const response = await fetch(`http://localhost:3000/api/usuarios/search/username/${username}`);
+    const response = await fetch(`http://localhost:3000/api/users/search/username/${username}`);
     const data = await response.json();
     
     if (data.success) {

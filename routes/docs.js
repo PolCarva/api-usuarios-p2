@@ -439,8 +439,8 @@ function generarHTML(contenidoMarkdown) {
         
         <div class="footer">
             <p>🚀 <strong>Servidor de Usuarios</strong> - Documentación generada automáticamente</p>
-            <p>Base URL: <code>https://api-usuarios-p2.up.railway.app/api/usuarios</code></p>
-            <p><a href="/">← Volver al servidor</a> | <a href="/api/usuarios">Ver usuarios</a></p>
+            <p>Base URL: <code>https://api-usuarios-p2.up.railway.app/api/users</code></p>
+            <p><a href="/">← Volver al servidor</a> | <a href="/api/users">Ver usuarios</a></p>
         </div>
     </div>
 </body>
