@@ -1,3 +1,6 @@
+// Cargar variables de entorno
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 const Usuario = require('./models/Usuario');
 const config = require('./config');
