@@ -35,8 +35,8 @@ npm install
 # Copiar el archivo de ejemplo
 cp .env.example .env
 
-# Editar las variables según tu configuración
 # El archivo .env.example ya incluye la configuración de MongoDB Atlas
+# y está configurado para usar Railway por defecto
 ```
 
 3. Asegúrate de tener MongoDB ejecutándose en tu sistema (opcional si usas MongoDB Atlas):
@@ -88,7 +88,7 @@ El proyecto está configurado para usar **MongoDB Atlas** (base de datos en la n
 
 ### Configuración Local
 
-Si prefieres usar MongoDB local, modifica el archivo `.env`:
+Si prefieres usar MongoDB local y desarrollo local, modifica el archivo `.env`:
 
 ```bash
 # Comentar la línea de MongoDB Atlas
@@ -96,6 +96,11 @@ Si prefieres usar MongoDB local, modifica el archivo `.env`:
 
 # Descomentar la línea de MongoDB local
 MONGODB_URI=mongodb://localhost:27017/usuarios_db
+
+# Cambiar URLs a localhost
+BASE_URL=http://localhost:3000
+API_BASE_URL=http://localhost:3000/api/usuarios
+DOCS_URL=http://localhost:3000/docs
 ```
 
 ## 📚 Documentación Interactiva
