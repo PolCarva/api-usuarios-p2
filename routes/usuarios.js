@@ -180,7 +180,28 @@ router.patch('/:id', async (req, res) => {
     const updateData = {};
     if (username !== undefined) updateData.username = username;
     if (email !== undefined) updateData.email = email;
-    if (data !== undefined) updateData.data = data;
+    
+    // Manejar actualizaciones parciales del campo data
+    if (data !== undefined) {
+      if (typeof data === 'object' && data !== null) {
+        // Para actualizaciones parciales de data, necesitamos obtener el documento actual
+        // y hacer una fusión de los datos
+        const usuarioActual = await Usuario.findById(req.params.id);
+        if (!usuarioActual) {
+          return res.status(404).json({
+            success: false,
+            message: 'Usuario no encontrado'
+          });
+        }
+        
+        // Fusionar los datos existentes con los nuevos
+        const dataActualizado = { ...usuarioActual.data, ...data };
+        updateData.data = dataActualizado;
+      } else {
+        // Si data no es un objeto, reemplazar completamente
+        updateData.data = data;
+      }
+    }
     
     // Si no hay campos para actualizar, retornar error
     if (Object.keys(updateData).length === 0) {
@@ -190,9 +211,10 @@ router.patch('/:id', async (req, res) => {
       });
     }
 
+    // Usar $set para actualizaciones parciales
     const usuarioActualizado = await Usuario.findByIdAndUpdate(
       req.params.id,
-      updateData,
+      { $set: updateData },
       { new: true, runValidators: true }
     );
 
