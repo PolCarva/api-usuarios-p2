@@ -171,6 +171,58 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// PATCH /api/usuarios/:id - Actualización parcial de un usuario
+router.patch('/:id', async (req, res) => {
+  try {
+    const { username, email, data } = req.body;
+    
+    // Construir objeto de actualización solo con los campos proporcionados
+    const updateData = {};
+    if (username !== undefined) updateData.username = username;
+    if (email !== undefined) updateData.email = email;
+    if (data !== undefined) updateData.data = data;
+    
+    // Si no hay campos para actualizar, retornar error
+    if (Object.keys(updateData).length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'No se proporcionaron campos para actualizar'
+      });
+    }
+
+    const usuarioActualizado = await Usuario.findByIdAndUpdate(
+      req.params.id,
+      updateData,
+      { new: true, runValidators: true }
+    );
+
+    if (!usuarioActualizado) {
+      return res.status(404).json({
+        success: false,
+        message: 'Usuario no encontrado'
+      });
+    }
+
+    res.json({
+      success: true,
+      message: 'Usuario actualizado exitosamente',
+      data: usuarioActualizado
+    });
+  } catch (error) {
+    if (error.code === 11000) {
+      return res.status(400).json({
+        success: false,
+        message: 'El username o email ya existe'
+      });
+    }
+    res.status(500).json({
+      success: false,
+      message: 'Error al actualizar usuario',
+      error: error.message
+    });
+  }
+});
+
 // DELETE /api/usuarios/:id - Eliminar un usuario
 router.delete('/:id', async (req, res) => {
   try {

@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
       'GET /api/users/:id': 'Obtener un usuario por ID',
       'POST /api/users': 'Crear un nuevo usuario',
       'PUT /api/users/:id': 'Actualizar un usuario',
+      'PATCH /api/users/:id': 'Actualización parcial de un usuario',
       'DELETE /api/users/:id': 'Eliminar un usuario'
     },
     links: {

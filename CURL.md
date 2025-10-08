@@ -71,6 +71,56 @@ Actualiza un usuario existente
 
 ```
 
+### PATCH /api/users/:id
+Actualización parcial de un usuario (solo los campos especificados)
+
+**Actualizar solo el username:**
+```bash
+curl -X PATCH http://localhost:3000/api/users/64f8a1b2c3d4e5f6a7b8c9d0 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "juan456"
+  }'
+```
+
+**Actualizar solo el email:**
+```bash
+curl -X PATCH http://localhost:3000/api/users/64f8a1b2c3d4e5f6a7b8c9d0 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "juan.nuevo@ejemplo.com"
+  }'
+```
+
+**Actualizar solo el campo data:**
+```bash
+curl -X PATCH http://localhost:3000/api/users/64f8a1b2c3d4e5f6a7b8c9d0 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "data": {
+      "edad": 27,
+      "ciudad": "Valencia",
+      "preferencias": {
+        "tema": "claro",
+        "idioma": "en"
+      }
+    }
+  }'
+```
+
+**Actualizar múltiples campos:**
+```bash
+curl -X PATCH http://localhost:3000/api/users/64f8a1b2c3d4e5f6a7b8c9d0 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "juan456",
+    "data": {
+      "edad": 26,
+      "ciudad": "Barcelona"
+    }
+  }'
+```
+
 ### DELETE /api/users/:id
 Elimina un usuario
 ```bash

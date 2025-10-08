@@ -431,7 +431,103 @@ curl -X PUT https://api-usuarios-p2.up.railway.app/api/users/64f8a1b2c3d4e5f6a7b
 
 ---
 
-### 7. Eliminar Usuario
+### 7. Actualización Parcial de Usuario
+
+**PATCH** `/api/users/:id`
+
+**Descripción:** Actualiza parcialmente un usuario existente. Solo se actualizan los campos proporcionados en el cuerpo de la petición.
+
+**Parámetros:**
+- `id` (path): ID único del usuario (MongoDB ObjectId)
+
+**Cuerpo de la petición (JSON):**
+```json
+{
+  "username": "string (opcional)",
+  "email": "string (opcional)",
+  "data": "object (opcional)"
+}
+```
+
+**Nota:** Todos los campos son opcionales. Solo se actualizarán los campos que se incluyan en el cuerpo de la petición.
+
+**Respuesta exitosa (200):**
+```json
+{
+  "success": true,
+  "message": "Usuario actualizado exitosamente",
+  "data": {
+    "_id": "64f8a1b2c3d4e5f6a7b8c9d0",
+    "username": "juan456",
+    "email": "juan@ejemplo.com",
+    "data": {
+      "edad": 26,
+      "ciudad": "Barcelona"
+    },
+    "createdAt": "2023-09-05T10:30:00.000Z",
+    "updatedAt": "2023-09-05T11:45:00.000Z"
+  }
+}
+```
+
+**Respuesta de error (400):**
+```json
+{
+  "success": false,
+  "message": "No se proporcionaron campos para actualizar"
+}
+```
+
+**Respuesta de error (404):**
+```json
+{
+  "success": false,
+  "message": "Usuario no encontrado"
+}
+```
+
+**Ejemplo JavaScript:**
+```javascript
+const userId = '64f8a1b2c3d4e5f6a7b8c9d0';
+const datosParciales = {
+  username: "juan456"
+};
+
+const response = await fetch(`https://api-usuarios-p2.up.railway.app/api/users/${userId}`, {
+  method: 'PATCH',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(datosParciales)
+});
+
+const data = await response.json();
+```
+
+**Ejemplo cURL:**
+```bash
+curl -X PATCH https://api-usuarios-p2.up.railway.app/api/users/64f8a1b2c3d4e5f6a7b8c9d0 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "juan456"
+  }'
+```
+
+**Ejemplo de actualización solo del campo data:**
+```bash
+curl -X PATCH https://api-usuarios-p2.up.railway.app/api/users/64f8a1b2c3d4e5f6a7b8c9d0 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "data": {
+      "edad": 27,
+      "ciudad": "Valencia"
+    }
+  }'
+```
+
+---
+
+### 8. Eliminar Usuario
 
 **DELETE** `/api/users/:id`
 
